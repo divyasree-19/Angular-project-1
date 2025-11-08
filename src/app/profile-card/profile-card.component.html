@@ -1,0 +1,16 @@
+<p>profile-card works!</p>
+<h2>hello </h2>
+
+<div class="row">
+  <div class="col-sm-3" *ngFor="let person of profiles">
+    <div class="card" [style.boxShadow]="getshowcolor(person.age)">
+      <div class="card-body">
+        <h5 class="card-title">{{ person.name }}</h5>
+        <p class="card-text">age: {{person.age}}</p>
+        <p class="card-text">profession: {{person.profession}}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,134 @@
+<hr>
+<p>component3 works!</p>
+<h3>Class Binding</h3>
+<h1>hello</h1>
+<p [ngClass]="{'highlight':light,'underline':line}">this is a multiline classes</p>
+
+<hr>
+<p>style Bindingxds</p>
+<p [style.color]="textColor">1.hello world</p>
+
+<p [style.color]="isSpecial?'green':'red'">2.  This paragraph changes background based on condition.</p>
+
+<p [ngStyle]="styleObj">3.This paragraph has multiple styles.</p>
+
+<hr>
+<p>Event Binding</p>
+<button (click)="handleClick()">Button</button>
+<p>{{msg}}</p>
+
+<input (keyup)="handleKey($event)" placeholder="Type something">
+
+<button (click)="count=count+1">Clicked {{count}} times</button>
+<p>clicked {{count}}</p>
+
+
+<hr>
+<p>Template Reference Variables</p>
+<input #nameInput type="text" placeholder="enter ur name">
+
+<button (click)="Value(nameInput.value)">submit</button>
+<br>
+<br>
+
+<input #inputRef type="text" placeholder="Type something" (input)="0">
+<p>{{ inputRef.value }}</p>
+
+<input [(ngModel)]="text" type="text" placeholder="Type something">
+<p>{{ text }}</p>
+
+
+<hr>
+<p>two way binding</p>
+1.
+<input [(ngModel)]="username"/>
+{{username}}
+<br>
+<br>
+
+2.
+<input [value]="value" (input)="update($event)">
+<p>Current Value (Child): {{ value }}</p>
+
+
+
+
+<hr>
+<p>ngIf directive:</p>
+<button (click)="Log()">{{ isLog? 'Logout':'Login'}}</button>
+
+<div *ngIf="isLog; else loggedout">
+    Welcome
+</div>
+
+<ng-template #loggedout><br>pls log in to continue</ng-template>
+
+
+<hr>
+<p>ngSwitch directive:</p>
+Enter ur day: <input type="text" (input)="upadte_day($event)">
+<div [ngSwitch]="day">
+ <h3 *ngSwitchCase="'monday'">Start of the Week</h3>
+  <h3 *ngSwitchCase="'friday'">Almost Weekend!</h3>
+  <h3 *ngSwitchCase="'sunday'">Weekend Fun 🎉</h3>
+  <h3 *ngSwitchDefault>Just Another Day</h3>
+</div>
+
+<hr>
+<h2>ngFor directive:</h2>
+<ul>
+<li *ngFor="let fruit of fruits;let i =index;let first=first let last=last; let odd=odd; let even=even">{{i+1}}-{{fruit}}--{{first}}</li>
+</ul>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Name</th>
+      <th>Grade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let stud of students">
+      <td>{{ stud.name }}</td>
+      <td>{{ stud.grade }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<hr>
+<h2>component interaction</h2>
+1. enter some text: <input type="text" [value]="new_value" (input)="update_new($event)">
+<p>current value:{{value}}  </p>
+
+<hr>
+<h2>pipes</h2>
+{{ 'DIVYA' | lowercase }}
+{{ 1500 | currency:'INR' }}  
+{{ 3.14159 | number:'1.2-3' }}  
+{{ '2002-09-23' | date:'fullDate' }}
+{{ 'angular pipes' | uppercase | slice:0:7 }}  
+<br>
+3.{{ 'Divya' | mypipe }}  
+<!-- Output: Hello, Divya! -->
+
+
+
+<hr>
+<h2>Services:</h2>
+<p>1. just making use of method from service to component:<br>   {{ msg2 }}</p>
+<p>2.using api:</p>
+<h2>Student List</h2>
+<table >
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+  </tr>
+  <tr *ngFor="let s of students">
+    <td>{{ s.id }}</td>
+    <td>{{ s.name }}</td>
+  </tr>
+</table>
+
+
+

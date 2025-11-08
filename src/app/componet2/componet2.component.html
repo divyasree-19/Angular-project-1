@@ -1,0 +1,16 @@
+<p>componet2 works!</p>
+{{title}}
+<app-component3 #childComp></app-component3>
+<button (click)="childComp.sayHello()">Call Child Method</button>
+
+<!-- Child component -->
+<app-component3 [(value)]="parentValue"></app-component3>
+<hr>
+<br>
+<p>Parent Value: {{ parentValue }}</p>
+
+<app-component3 [(new_value)]="top_value"></app-component3>
+<hr>
+<p>parent value: {{top_value}}</p>
+<hr>
+<app-profile-card></app-profile-card>
